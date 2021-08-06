@@ -37,7 +37,8 @@ library(fontawesome)
 library(rsvg)
 options(knitr.table.format = "html")
 # fa_html_dependency()
-
+p <- function(text) { text_spec(text, background = "#333399", color = "white", bold = T, font_size = 6) }
+cat_tags <- function(tags) { paste(sapply(tags, p), sep = '', collapse = ' ') }
 ```
 
 # Education
@@ -141,4 +142,15 @@ tribble(
     with = Where
   )
 ```
+
+# Select Skills
+
+`r cat_tags(c("Computer Science", "Mathematics", "Statistics", "Modelling", "Bioinformatics", "Genomics", "Network Analysis", "Systems", "Pharmacometrics", "Data Science", "Computational Methods", "Simulation", "Artificial Intelligence", "Optimisation", "Artificial Neural Networks", "Neuroscience"))`
+
+`r cat_tags(c("Databases", "High Performance Computing", "Cloud Computing", "Reproducible Research", "Software Quality", "Scientfic Software", "Commercial Software", "Analytics"))`
+
+`r cat_tags(c("Agile Development", "Software Project Management", "Scrum", "Git", "Docker", "DevOps", "Ansible", "Pair Programming"))`
+
+`r cat_tags(c("R", "Julia", "SQL", "Python", "Perl", "FORTRAN","C++", "C",  "Ruby", "Prolog", "Assembler", "JavaScript", "Java", "Objective-C", "TypeScript", "Swift", "Erlang", "Elixir"))`
+
 
