@@ -6,8 +6,7 @@ position: "Computational Biologist"
 
 profilepic: "Paul.jpg"
 
-address:  | 
-          |7/46 Lucinda St, Taringa, QLD 4068, Australia
+address: "Taringa, QLD 4068, Australia"
 phone: +61 421 583 518
 email: "paul.sabourenkov@uq.net.au"
 github: "gimme00"
