@@ -151,7 +151,7 @@ tribble(
 
 `r cat_tags(c("Databases", "High Performance Computing", "Cloud Computing", "Reproducible Research", "Software Quality", "Scientfic Software", "Commercial Software", "Analytics"))`
 
-`r cat_tags(c("Agile Development", "Software Project Management", "Pair Programming", "Mentoring", "Scrum", "Git", "Docker", "DevOps", "Ansible", ))`
+`r cat_tags(c("Agile Development", "Software Project Management", "Pair Programming", "Mentoring", "Scrum", "Git", "Docker", "DevOps", "Ansible"))`
 
 `r cat_tags(c("R", "Julia", "SQL", "Python", "Perl", "FORTRAN","C++", "C",  "Ruby", "Prolog", "Assembler", "JavaScript", "Java", "Objective-C", "TypeScript", "Swift", "Erlang", "Elixir"))`
 
