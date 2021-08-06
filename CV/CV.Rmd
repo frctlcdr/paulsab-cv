@@ -1,64 +1,144 @@
 ---
-name: Marie
-surname: Curie
-position: "Professor"
-address: "School of Physics & Chemistry, École Normale Supérieure"
-phone: +1 22 3333 4444
-www: mariecurie.com
-email: "Marie.Curie@ens.fr"
-twitter: mariecurie
-github: mariecurie
-linkedin: mariecurie
+name: Paul
+surname: Sabourenkov
+
+position: "Computational Biologist"
+
+profilepic: "Paul.jpg"
+
+address:  | 
+          |7/46 Lucinda St, Taringa, QLD 4068, Australia
+phone: +61 421 583 518
+email: "paul.sabourenkov@uq.net.au"
+github: gimme00
+www: "www.linkedin.com/in/psabourenkov"
+linkedin: psabourenkov
+
+aboutme: MBioinf(Adv), BSc(Hons)Psych, BSc(Hons)CompSci, Assoc.MAPS
+  
+headcolor: 333399
+#docname: 'CV'
+
 date: "`r format(Sys.time(), '%B %Y')`"
-output: vitae::awesomecv
+
+# fontawesome: yes
+output: 
+  vitae::awesomecv:
+    keep_tex: false
+always_allow_html: no
 ---
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = FALSE, warning = FALSE, message = FALSE)
 library(vitae)
+library(kableExtra)
+library(tibble)
+library(fontawesome)
+library(rsvg)
+options(knitr.table.format = "html")
+# fa_html_dependency()
+
 ```
-
-# Some stuff about me
-
- * I poisoned myself doing research.
- * I was the first woman to win a Nobel prize
- * I was the first person and only woman to win a Nobel prize in two different sciences.
 
 # Education
 
 ```{r}
-library(tibble)
 tribble(
-  ~ Degree, ~ Year, ~ Institution, ~ Where,
-  "Informal studies", "1889-91", "Flying University", "Warsaw, Poland",
-  "Master of Physics", "1893", "Sorbonne Université", "Paris, France",
-  "Master of Mathematics", "1894", "Sorbonne Université", "Paris, France"
-) %>% 
-  detailed_entries(Degree, Year, Institution, Where)
+  ~ Degree, ~ Year, ~ Institution, ~ Where, ~ Details,
+  "M.Sc. Bioinformatics (Advanced)", 2015, "University of Queensland", "St Lucia, Queensland", 
+      c("research into cancer genomics using interaction network analysis to identify novel drug targets in medulloblastoma", 
+        "supervised by Dr. Melissa Davis",
+        "at Prof. Brandon Wainwright group at the Institute for Molecular Bioscience, UQ"),
+  "B.Sc. (Honours)", 2009, "University of Tasmania", "Hobart, Tasmania", 
+      c("research into effect of cognitive processes on cortical plasticity with respect to human motor control and post-stroke rehabilitation",
+        "human neuroscience focus",
+        "advanced topics in bioethics, theoretical controversies, clinical psychology, research methods and statistics"),
+  "Grad. Dip. Sc. Psychology", 2008, "University of Tasmania and Monash", "Hobart,  Tasmania", 
+      c("Australian Psychological Society accredited","focus on clinical, social, and developmental psychology, and psychological testing as well as neuroscience","three year core of statistics and research methods"),
+  "B.Sc. (Honours) Computer Science", 1997, "University of Tasmania", "Hobart, Tasmania", 
+    c("research into optimlality in artificial neural networks",
+      "advanced topics in operating systems and networks, simulation, discrete and continuous modelling, concurrency and supercomputing, artificial intelligence, expert systems, and advanced VLSI design"),
+  "B.Sc. Computer Science", 1995, "University of Tasmania", "Hobart, Tasmania", 
+      c("principles of computer science and software engineering, systems analysis, databases, computer architecture and VLSI design, networking, artificial intelligence, computer graphics, and digital image processing","mathematics including discrete mathematics, linear algebra, operations research and optimisation, multivariate calculus, abstract algebra, computational methods, and cryptography")
+) %>%
+  detailed_entries(Degree, Year, Institution, Where, Details)
+
+# packages_used <- tibble::tribble(
+#   ~ package, ~ Year, ~ language, ~ timezone, ~ details,
+#   "M.Sc. Bioinformatics (Advanced)", 2015, "University of Queensland", "St Lucia, Queensland", c("Making my CV with vitae.", "Multiple why entries."),
+#   "vitae", 2014, "R", "something", c("Making my CV with vitae.", "Multiple why entries."),
+#   "rmarkdown", 2011, "R", "else", "Writing reproducible, dynamic reports using R."
+# )
+# packages_used %>%
+#   detailed_entries(what = package, when = Year, with = language, where = timezone, why = details)
 ```
 
-# Nobel Prizes
-
-```{r}
-tribble(
-  ~Year, ~Type, ~Desc,
-  1903, "Physics", "Awarded for her work on radioactivity with Pierre Curie and Henri Becquerel",
-  1911, "Chemistry", "Awarded for the discovery of radium and polonium"
-) %>% 
-  brief_entries(
-    glue::glue("Nobel Prize in {Type}"),
-    Year, 
-    Desc
-  )
-```
 
 # Publications
 
 ```{r}
-library(dplyr)
-knitr::write_bib(c("vitae", "tibble"), "packages.bib")
+bib <- bibliography_entries(here::here("bibliography.bib"))
 
-bibliography_entries("packages.bib") %>%
-  arrange(desc(author$family), issued)
+t<- bib %>% dplyr::arrange(desc(as.Date(issued)))
+
+t
+```
+
+# Short Courses
+
+```{r}
+tribble(
+  ~Year, ~Course, ~Where,
+  2012, "Drugs and the Brain (Neuropharmacology)", "California Institute of Technology",
+  2012, "Fundamentals of Pharmacology", "University of Pennsylvania",
+  2001, "Certificate of English Language Teaching to Adults (CELTA)", "Cambridge College of English (CIC)"
+) %>% 
+  brief_entries(
+    Course,
+    Year, 
+    Where
+  )
+```
+
+# Recognition and Professional Memberships
+
+```{r}
+tribble(
+  ~Year, ~Where, ~What,
+  2014, "Australian Bioinformatics and Computational Biology Society (ABACBS)", "Member",
+  2010, "Golden Key International Honour Society", "Member",
+  2010, "Australian Psychological Society", "Assoc. MAPS",
+  1996, "Australian Computer Society", "MACS"
+) %>% 
+  brief_entries(
+    Where,
+    Year, 
+    What
+  )
+```
+
+# Career Profile
+
+```{r}
+tribble(
+  ~Year, ~Title, ~Where,
+  "2016-2021", "Computational Biologist (Pharmacometrics)", "DoseMe Pty.Ltd.",
+  "2015-2017", "Consultant (Databases)", "CMLR, UQ",
+  "2014-2015", "Bioinformatician (Cancer Genomics)", "IMB, UQ",
+  "2010-2013", "Software Engineer (Machine Control)", "Leica Geosystems",
+  "2007-2010", "Senior Systems Analys (Systems)", "Tote Tasmania",
+  "2004-2007", "Senior Developer (Databases)", "Tote Tasmania",
+  "2001-2004", "Software Development Team Leader (Systems)", "Tote Tasmania",
+  "1999-2000", "GIS Data Analyst, Statistician", "CSIRO Division of Marine Research",
+  "1999-2000", "Software Developer (Scientific Software)", "CSIRO Division of Marine Research",
+  "1998-1998", "Software Developer (Simulation and Modelling)", "University of Tasmania",
+  "1991-1992", "Software Developer (Finance)", "Open Look Software",
+  "1989-1989", "Support Programmer (Process Control)", "Skobeltsyn Institute of Nuclear Physics"
+) %>% 
+  brief_entries(
+    what = Title,
+    when = Year, 
+    with = Where
+  )
 ```
 
