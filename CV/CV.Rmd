@@ -10,8 +10,8 @@ address:  |
           |7/46 Lucinda St, Taringa, QLD 4068, Australia
 phone: +61 421 583 518
 email: "paul.sabourenkov@uq.net.au"
-github: gimme00
-www: "www.linkedin.com/in/psabourenkov"
+github: "gimme00"
+# www: "www.linkedin.com/in/psabourenkov"
 linkedin: psabourenkov
 
 aboutme: MBioinf(Adv), BSc(Hons)Psych, BSc(Hons)CompSci, Assoc.MAPS
@@ -26,6 +26,8 @@ output:
   vitae::awesomecv:
     keep_tex: false
 always_allow_html: no
+
+papersize: a4
 ---
 
 ```{r setup, include=FALSE}
@@ -149,11 +151,12 @@ tribble(
 
 `r cat_tags(c("Databases", "High Performance Computing", "Cloud Computing", "Reproducible Research", "Software Quality", "Scientfic Software", "Commercial Software", "Analytics"))`
 
-`r cat_tags(c("Agile Development", "Software Project Management", "Scrum", "Git", "Docker", "DevOps", "Ansible", "Pair Programming"))`
+`r cat_tags(c("Agile Development", "Software Project Management", "Pair Programming", "Mentoring", "Scrum", "Git", "Docker", "DevOps", "Ansible", ))`
 
 `r cat_tags(c("R", "Julia", "SQL", "Python", "Perl", "FORTRAN","C++", "C",  "Ruby", "Prolog", "Assembler", "JavaScript", "Java", "Objective-C", "TypeScript", "Swift", "Erlang", "Elixir"))`
 
 # One More Thing
 
-## This CV is written in R and Markdown, you can view the source code on github here:  [https://github.com/frctlcdr/paulsab-cv.git](https://github.com/frctlcdr/paulsab-cv.git)
+## This CV is written in R and Markdown, you can view the source code on github
+## [https://github.com/frctlcdr/paulsab-cv.git](https://github.com/frctlcdr/paulsab-cv.git)
 
