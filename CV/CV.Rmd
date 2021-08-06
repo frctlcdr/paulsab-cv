@@ -153,4 +153,7 @@ tribble(
 
 `r cat_tags(c("R", "Julia", "SQL", "Python", "Perl", "FORTRAN","C++", "C",  "Ruby", "Prolog", "Assembler", "JavaScript", "Java", "Objective-C", "TypeScript", "Swift", "Erlang", "Elixir"))`
 
+# One More Thing
+
+## This CV is written in R and Markdown, you can view the source code on github here:  [https://github.com/frctlcdr/paulsab-cv.git](https://github.com/frctlcdr/paulsab-cv.git)
 
