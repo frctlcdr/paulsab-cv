@@ -44,7 +44,7 @@ cat_tags <- function(tags) { paste(sapply(tags, p), sep = '', collapse = ' ') }
 
 # Education
 
-```{r}
+```{r education}
 tribble(
   ~ Degree, ~ Year, ~ Institution, ~ Where, ~ Details,
   "M.Bioinformatics (Advanced)", 2015, "University of Queensland", "St Lucia, Queensland", 
@@ -64,21 +64,12 @@ tribble(
       c("principles of computer science and software engineering, computer languages, metaprogramming, functional programming, systems analysis, databases, computer architecture and VLSI design, networking, artificial intelligence, computer graphics, and digital image processing","mathematics including discrete mathematics, linear algebra, operations research and optimisation, multivariate calculus, abstract algebra, computational methods, and cryptography")
 ) %>%
   detailed_entries(Degree, Year, Institution, Where, Details)
-
-# packages_used <- tibble::tribble(
-#   ~ package, ~ Year, ~ language, ~ timezone, ~ details,
-#   "M.Sc. Bioinformatics (Advanced)", 2015, "University of Queensland", "St Lucia, Queensland", c("Making my CV with vitae.", "Multiple why entries."),
-#   "vitae", 2014, "R", "something", c("Making my CV with vitae.", "Multiple why entries."),
-#   "rmarkdown", 2011, "R", "else", "Writing reproducible, dynamic reports using R."
-# )
-# packages_used %>%
-#   detailed_entries(what = package, when = Year, with = language, where = timezone, why = details)
 ```
 
 
 # Publications
 
-```{r}
+```{r publications}
 bib <- bibliography_entries(here::here("bibliography.bib"))
 
 t<- bib %>% dplyr::arrange(desc(as.Date(issued)))
@@ -88,7 +79,7 @@ t
 
 # Short Courses
 
-```{r}
+```{r short_courses}
 tribble(
   ~Year, ~Course, ~Where,
   2012, "Drugs and the Brain (Neuropharmacology)", "California Institute of Technology",
@@ -104,7 +95,7 @@ tribble(
 
 # Recognition and Professional Memberships
 
-```{r}
+```{r recognition}
 tribble(
   ~Year, ~Where, ~What,
   2014, "Australian Bioinformatics and Computational Biology Society (ABACBS)", "Member",
@@ -121,7 +112,7 @@ tribble(
 
 # Career Profile
 
-```{r}
+```{r career_profile}
 tribble(
   ~Year, ~Title, ~Where,
   "2016-2021", "Computational Biologist (Pharmacometrics)", "DoseMe Pty.Ltd.",
@@ -146,13 +137,24 @@ tribble(
 
 # Select Skills
 
-`r cat_tags(c("Computer Science", "Mathematical Statistics", "Modelling", "Bioinformatics", "Genomics", "Network Analysis", "Systems", "Pharmacometrics", "Data Science", "Computational Methods", "Simulation", "Artificial Intelligence", "Optimisation", "Artificial Neural Networks", "Neuroscience"))`
+```{r tags}
+tags <- list(
+  areas = c("Computer Science", "Mathematical Statistics", "Modelling", "Bioinformatics", "Genomics", "Network Analysis", "Systems", "Pharmacometrics", "Data Science", "Computational Methods", "Simulation", "Artificial Intelligence", "Optimisation", "Artificial Neural Networks", "Neuroscience"),
+  technologies = c("Databases", "High Performance Computing", "Functional Programming", "Cloud Computing", "Reproducible Research", "Software Quality", "Scientfic Software", "Commercial Software", "Analytics"),
+  social_coding = c("Agile Development", "Software Project Management", "Pair Programming", "Mentoring", "Scrum", "Git", "Docker", "DevOps", "Ansible"),
+  languages = c("R", "Julia", "SQL", "Python", "Perl", "FORTRAN","C++", "C",  "Ruby", "Prolog", "Assembler", "JavaScript", "Java", "Objective-C", "TypeScript", "Swift", "Erlang", "Elixir")
+  )
 
-`r cat_tags(c("Databases", "High Performance Computing", "Functional Programming", "Cloud Computing", "Reproducible Research", "Software Quality", "Scientfic Software", "Commercial Software", "Analytics"))`
+yaml::write_yaml(tags, here())
+```
 
-`r cat_tags(c("Agile Development", "Software Project Management", "Pair Programming", "Mentoring", "Scrum", "Git", "Docker", "DevOps", "Ansible"))`
+`r cat_tags( tags$areas )`
 
-`r cat_tags(c("R", "Julia", "SQL", "Python", "Perl", "FORTRAN","C++", "C",  "Ruby", "Prolog", "Assembler", "JavaScript", "Java", "Objective-C", "TypeScript", "Swift", "Erlang", "Elixir"))`
+`r cat_tags( tags$technologies )`
+
+`r cat_tags( tags$social_coding )`
+
+`r cat_tags( tags$languages )`
 
 # One More Thing
 
