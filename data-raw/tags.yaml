@@ -1,5 +1,6 @@
 areas:
 - Computer Science
+- Software Englineering
 - Mathematical Statistics
 - Modelling
 - Bioinformatics
@@ -8,12 +9,13 @@ areas:
 - Systems
 - Pharmacometrics
 - Data Science
-- Computational Methods
 - Simulation
+- Numeric Methods
 - Artificial Intelligence
 - Optimisation
 - Artificial Neural Networks
 - Neuroscience
+- Non-linear Mixed Effects Models
 technologies:
 - Databases
 - High Performance Computing
@@ -24,6 +26,7 @@ technologies:
 - Scientfic Software
 - Commercial Software
 - Analytics
+# this category is rather fuzzy
 social_coding:
 - Agile Development
 - Software Project Management
@@ -33,7 +36,10 @@ social_coding:
 - Git
 - Docker
 - DevOps
+- Cloud Computing
 - Ansible
+- AWS
+- Microsoft Azure
 languages:
 - R
 - Julia
@@ -53,3 +59,5 @@ languages:
 - Swift
 - Erlang
 - Elixir
+- CLIPS
+- PL/SQL
