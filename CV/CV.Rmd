@@ -157,5 +157,5 @@ tribble(
 # One More Thing
 
 ## This CV is written in R and Markdown, you can view the source code on github
-## [https://github.com/frctlcdr/paulsab-cv.git](https://github.com/frctlcdr/paulsab-cv.git)
+## [https://github.com/frctlcdr/paulsab-cv](https://github.com/frctlcdr/paulsab-cv)
 

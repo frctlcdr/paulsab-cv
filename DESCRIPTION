@@ -1,0 +1,25 @@
+Package: paulsab.cv
+Title: A package to generate my CV
+Version: 1.0.0
+Authors@R: 
+    person(given = "Paul",
+           family = "Sabournkov",
+           role = c("aut", "cre"),
+           email = "paulsab@gmail.com")
+Description: Builds a CV using the brilliant vitae package by Mitchell O'Hara-Wild.
+License: CC BY 4.0
+Encoding: UTF-8
+LazyData: true
+Roxygen: list(markdown = TRUE)
+RoxygenNote: 7.1.1
+Imports: 
+    fontawesome,
+    kableExtra,
+    rsvg,
+    tibble,
+    vitae
+Suggests: 
+    usethis,
+    roxygen2,
+    testthat (>= 3.0.0)
+Config/testthat/edition: 3
