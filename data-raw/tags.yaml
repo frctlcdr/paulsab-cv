@@ -1,0 +1,55 @@
+areas:
+- Computer Science
+- Mathematical Statistics
+- Modelling
+- Bioinformatics
+- Genomics
+- Network Analysis
+- Systems
+- Pharmacometrics
+- Data Science
+- Computational Methods
+- Simulation
+- Artificial Intelligence
+- Optimisation
+- Artificial Neural Networks
+- Neuroscience
+technologies:
+- Databases
+- High Performance Computing
+- Functional Programming
+- Cloud Computing
+- Reproducible Research
+- Software Quality
+- Scientfic Software
+- Commercial Software
+- Analytics
+social_coding:
+- Agile Development
+- Software Project Management
+- Pair Programming
+- Mentoring
+- Scrum
+- Git
+- Docker
+- DevOps
+- Ansible
+languages:
+- R
+- Julia
+- SQL
+- Python
+- Perl
+- FORTRAN
+- C++
+- C
+- Ruby
+- Prolog
+- Assembler
+- JavaScript
+- Java
+- Objective-C
+- TypeScript
+- Swift
+- Erlang
+- Elixir

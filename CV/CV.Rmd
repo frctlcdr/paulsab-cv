@@ -45,25 +45,26 @@ cat_tags <- function(tags) { paste(sapply(tags, p), sep = '', collapse = ' ') }
 # Education
 
 ```{r education}
-tribble(
+degrees <- tribble(
   ~ Degree, ~ Year, ~ Institution, ~ Where, ~ Details,
-  "M.Bioinformatics (Advanced)", 2015, "University of Queensland", "St Lucia, Queensland", 
-      c("research into cancer genomics using interaction network analysis to identify novel drug targets in medulloblastoma", 
+  "M.Bioinformatics (Advanced)", 2015, "University of Queensland", "St Lucia, Queensland",
+      c("research into cancer genomics using interaction network analysis to identify novel drug targets in medulloblastoma",
         "supervised by Dr. Melissa Davis",
         "at Prof. Brandon Wainwright group at the Institute for Molecular Bioscience, UQ"),
-  "B.Sc. (Honours) Psychology", 2009, "University of Tasmania", "Hobart, Tasmania", 
+  "B.Sc. (Honours) Psychology", 2009, "University of Tasmania", "Hobart, Tasmania",
       c("research into effect of cognitive processes on cortical plasticity with respect to human motor control and post-stroke rehabilitation",
         "human neuroscience focus",
         "advanced topics in bioethics, theoretical controversies, clinical psychology, research methods and statistics"),
-  "Grad. Dip. Sc. Psychology", 2008, "University of Tasmania and Monash", "Hobart,  Tasmania", 
+  "Grad. Dip. Sc. Psychology", 2008, "University of Tasmania and Monash", "Hobart, Tasmania",
       c("Australian Psychological Society accredited","focus on clinical, social, and developmental psychology, and psychological testing as well as neuroscience","three year core in statistics and research methods"),
-  "B.Sc. (Honours) Computer Science", 1997, "University of Tasmania", "Hobart, Tasmania", 
+  "B.Sc. (Honours) Computer Science", 1997, "University of Tasmania", "Hobart, Tasmania",
     c("research into optimality in artificial neural networks",
       "advanced topics in operating systems and networks, simulation, discrete and continuous modelling, concurrency and supercomputing, artificial intelligence, expert systems, computer languages, functional programming, and advanced VLSI design"),
-  "B.Sc. Computer Science", 1995, "University of Tasmania", "Hobart, Tasmania", 
+  "B.Sc. Computer Science", 1995, "University of Tasmania", "Hobart, Tasmania",
       c("principles of computer science and software engineering, computer languages, metaprogramming, functional programming, systems analysis, databases, computer architecture and VLSI design, networking, artificial intelligence, computer graphics, and digital image processing","mathematics including discrete mathematics, linear algebra, operations research and optimisation, multivariate calculus, abstract algebra, computational methods, and cryptography")
-) %>%
-  detailed_entries(Degree, Year, Institution, Where, Details)
+)
+
+degrees %>% detailed_entries(Degree, Year, Institution, Where, Details)
 ```
 
 
@@ -72,9 +73,7 @@ tribble(
 ```{r publications}
 bib <- bibliography_entries(here::here("bibliography.bib"))
 
-t<- bib %>% dplyr::arrange(desc(as.Date(issued)))
-
-t
+bib %>% dplyr::arrange(desc(as.Date(issued)))
 ```
 
 # Short Courses
@@ -138,14 +137,7 @@ tribble(
 # Select Skills
 
 ```{r tags}
-tags <- list(
-  areas = c("Computer Science", "Mathematical Statistics", "Modelling", "Bioinformatics", "Genomics", "Network Analysis", "Systems", "Pharmacometrics", "Data Science", "Computational Methods", "Simulation", "Artificial Intelligence", "Optimisation", "Artificial Neural Networks", "Neuroscience"),
-  technologies = c("Databases", "High Performance Computing", "Functional Programming", "Cloud Computing", "Reproducible Research", "Software Quality", "Scientfic Software", "Commercial Software", "Analytics"),
-  social_coding = c("Agile Development", "Software Project Management", "Pair Programming", "Mentoring", "Scrum", "Git", "Docker", "DevOps", "Ansible"),
-  languages = c("R", "Julia", "SQL", "Python", "Perl", "FORTRAN","C++", "C",  "Ruby", "Prolog", "Assembler", "JavaScript", "Java", "Objective-C", "TypeScript", "Swift", "Erlang", "Elixir")
-  )
-
-yaml::write_yaml(tags, here())
+tags <- yaml::read_yaml(here::here("data-raw/tags.yaml"))
 ```
 
 `r cat_tags( tags$areas )`
